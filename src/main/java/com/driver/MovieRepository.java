@@ -21,13 +21,13 @@ public class MovieRepository {
     }
     boolean addPairtoDb(String movieName,String directorName){
         if(movieDb.containsKey(movieName) && directorDb.containsKey(directorName)){
-            if(!pairDb.containsKey(directorDb.get(directorName))){
+            if(!pairDb.containsKey(directorName)){
                 List<String>li=new ArrayList<>();
                 li.add(movieName);
                 pairDb.put(directorName,li);
                 return true;
             }else{
-                List<String> li=pairDb.get(directorDb.get(directorName));
+                List<String> li=pairDb.get(directorName);
                 li.add(movieName);
                 pairDb.put(directorName, li);
             }
@@ -44,7 +44,7 @@ public class MovieRepository {
         return null;
     }
     List<String> getMovies(String director){
-        if(pairDb.containsKey(directorDb.get(director))) return pairDb.get(directorDb.get(director));
+        if(pairDb.containsKey(director)) return pairDb.get(director);
         return null;
     }
      List<String> getAllMovies(){
@@ -57,7 +57,7 @@ public class MovieRepository {
     boolean deleteDirector(String directorName){
         if(directorDb.containsKey(directorName)){
             directorDb.remove(directorName);
-            pairDb.remove(directorDb.get(directorName));
+            pairDb.remove(directorName);
             return true;
         }else return false;
     }
