@@ -58,6 +58,9 @@ public class MovieRepository {
     boolean deleteDirector(String directorName){
         if(directorDb.containsKey(directorName)){
             directorDb.remove(directorName);
+            for(String movie:pairDb.get(directorName)){
+                movieDb.remove(movie);
+            }
             pairDb.remove(directorName);
             return true;
         }else return false;
