@@ -41,15 +41,15 @@ public class MovieService {
         }
         return new ResponseEntity<>(null,HttpStatus.NOT_FOUND);
     }
-    public ResponseEntity<List<Movie>> getMoviesByDirectorName(String directorName){
-        List<Movie> movies= movieRepository.getMovies(directorName);
+    public ResponseEntity<List<String>> getMoviesByDirectorName(String directorName){
+        List<String> movies= movieRepository.getMovies(directorName);
         if(movies!=null){
             return new ResponseEntity<>(movies,HttpStatus.FOUND);
         }
         return new ResponseEntity<>(null,HttpStatus.NOT_FOUND);
     }
-    public ResponseEntity<List<Movie>> findAllMovies(){
-        List<Movie> movies= movieRepository.getAllMovies();
+    public ResponseEntity<List<String>> findAllMovies(){
+        List<String> movies= movieRepository.getAllMovies();
         if(movies!=null){
             return new ResponseEntity<>(movies,HttpStatus.FOUND);
         }

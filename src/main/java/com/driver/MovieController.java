@@ -32,11 +32,11 @@ public class MovieController {
         return movieService.getDirectorByName(directorName);
     }
     @GetMapping("/get-movies-by-director-name/{director}")
-    public ResponseEntity<List<Movie>> getMoviesByDirectorName(@PathVariable("director") String directorName){
+    public ResponseEntity<List<String>> getMoviesByDirectorName(@PathVariable("director") String directorName){
         return movieService.getMoviesByDirectorName(directorName);
     }
     @GetMapping("/get-all-movies")
-    public ResponseEntity<List<Movie>>  findAllMovies(String directorName){
+    public ResponseEntity<List<String>>  findAllMovies(){
         return movieService.findAllMovies();
     }
     @DeleteMapping("/delete-director-by-name")
