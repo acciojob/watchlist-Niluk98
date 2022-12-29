@@ -11,7 +11,7 @@ import java.util.Map;
 public class MovieRepository {
     HashMap<String,Movie> movieDb=new HashMap<>();
     HashMap<String,Director> directorDb=new HashMap<>();
-    HashMap<Director, List<String>> pairDb=new HashMap<>();
+    HashMap<String, List<String>> pairDb=new HashMap<>();
     boolean addMovieTodb(Movie movie){
         movieDb.put(movie.name,movie);
         return true;
@@ -24,12 +24,12 @@ public class MovieRepository {
             if(!pairDb.containsKey(directorDb.get(directorName))){
                 List<String>li=new ArrayList<>();
                 li.add(movieName);
-                pairDb.put(directorDb.get(directorName),li);
+                pairDb.put(directorName,li);
                 return true;
             }else{
                 List<String> li=pairDb.get(directorDb.get(directorName));
                 li.add(movieName);
-                pairDb.put(directorDb.get(directorName), li);
+                pairDb.put(directorName, li);
             }
 
         }
@@ -62,7 +62,7 @@ public class MovieRepository {
         }else return false;
     }
     boolean deleteAllDirector(){
-        for(Map.Entry<Director,List<String>> e:pairDb.entrySet()){
+        for(Map.Entry<String,List<String>> e:pairDb.entrySet()){
             for(String movie:pairDb.get(e.getKey())){
                 movieDb.remove(movie);
             }
