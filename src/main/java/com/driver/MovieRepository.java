@@ -25,12 +25,13 @@ public class MovieRepository {
                 List<String>li=new ArrayList<>();
                 li.add(movieName);
                 pairDb.put(directorName,li);
-                return true;
+
             }else{
                 List<String> li=pairDb.get(directorName);
                 li.add(movieName);
                 pairDb.put(directorName, li);
             }
+            return true;
 
         }
         return false;
